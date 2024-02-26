@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, FlatList, StyleSheet, Text, TouchableOpacity, View, Button, TextInput } from 'react-native';
 import { FIRESTORE_DB } from '../../firebaseConfig';
-import { doc, collection, addDoc, updateDoc, deleteDoc, onSnapshot } from '@firebase/firestore';
+import { doc, collection, onSnapshot } from '@firebase/firestore';
 import { Ionicons, Entypo } from '@expo/vector-icons';
 
 const Braindump = ({navigation}) => {
