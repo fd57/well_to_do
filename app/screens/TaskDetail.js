@@ -40,7 +40,7 @@ const TaskDetail = ({route, navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{route.params.item.title}</Text>
-      <Text style={styles.heading}>Due</Text>
+      <Text style={styles.heading}>Due: {route.params.item.dueperiod}</Text>
       <Text style={styles.notes}>{dueDate}</Text>
       <Text style={styles.notes}>{dueTime}</Text>
       <Text style={styles.heading}>Notes</Text>
