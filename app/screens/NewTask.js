@@ -185,6 +185,7 @@ const NewTask = ({route, navigation}) => {
     <SafeAreaView>
       <KeyboardAvoidingView 
         behavior='position' 
+        // does this need the brackets?
         keyboardVerticalOffset={useHeaderHeight()}
       >
         <View style={styles.form}>
