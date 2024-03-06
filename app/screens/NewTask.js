@@ -38,7 +38,7 @@ const NewTask = ({route, navigation}) => {
         setDueTime(null);
       }
       if (route.params.item.reminders != null) {
-        setReminder(route.params.item.reminders.toDate().toUTCString());
+        setReminder(route.params.item.reminders.toDate());
       } else {
         setReminder(null);
       }
