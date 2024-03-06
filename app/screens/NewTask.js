@@ -23,8 +23,8 @@ const NewTask = ({route, navigation}) => {
     if (route.params != undefined) {
       setEditing(true);
       setTodo(route.params.item.title);
-      setDuedate(route.params.item.duedate);
-      setDuetime(route.params.item.duetime);
+      setDueDate(route.params.item.duedate);
+      setDueTime(route.params.item.duetime);
       setReminder(route.params.item.reminders.toDate());
       setNotes(route.params.item.notes);
       setDone(route.params.item.done);
