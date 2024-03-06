@@ -23,11 +23,25 @@ const NewTask = ({route, navigation}) => {
     if (route.params != undefined) {
       setEditing(true);
       setTodo(route.params.item.title);
-      setDueDate(route.params.item.duedate);
-      setDueTime(route.params.item.duetime);
-      setReminder(route.params.item.reminders.toDate());
       setNotes(route.params.item.notes);
       setDone(route.params.item.done);
+
+      // handle dates
+      if (route.params.item.duedate != null) {
+        setDueDate(route.params.item.duedate.toDate());
+      } else {
+        setDueDate(null);
+      }
+      if (route.params.item.duetime != null) {
+        setDueTime(route.params.item.duetime.toDate());
+      } else {
+        setDueTime(null);
+      }
+      if (route.params.item.reminders != null) {
+        setReminder(route.params.item.reminders.toDate().toUTCString());
+      } else {
+        setReminder(null);
+      }
     }
   }, []);
 
@@ -63,10 +77,6 @@ const NewTask = ({route, navigation}) => {
     hideDatePicker();
   };
 
-  // const cancelReminder = () => {
-  //   setReminder(null);
-  // };
-
   // DUE TIME
   const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
   const showTimePicker = () => {
@@ -79,10 +89,6 @@ const NewTask = ({route, navigation}) => {
     setDueTime(time);
     hideTimePicker();
   };
-
-  // const cancelReminder = () => {
-  //   setReminder(null);
-  // };
 
 
   // DATABASE CRUD FUNCTIONS
@@ -119,8 +125,8 @@ const NewTask = ({route, navigation}) => {
       }
       updateDoc(ref, {
         title: todo,
-        duedate: duedate,
-        duetime: duetime,
+        duedate: dueDate,
+        duetime: dueTime,
         reminders: reminder,
         reminderIds: id,
         notes: notes,
